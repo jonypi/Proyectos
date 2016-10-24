@@ -5,17 +5,30 @@
  */
 package Proyecto;
 
+import java.util.Scanner;
+
 /**
  *
  * @author cisco
  */
 public class Principal {
 
-    /**
-     * @param args the command line arguments
-     */
+    public static int leerEntero(String mensaje) {
+        Scanner ingreso = new Scanner(System.in);
+        System.out.println(mensaje);
+        int dato = ingreso.nextInt();
+        return dato;
+
+    }
+    public static String leerString(String mensaje) {
+
+        Scanner ingreso = new Scanner(System.in);
+        System.out.println(mensaje);
+        String dato = ingreso.nextLine();
+        return dato;
+    }
     public static void main(String[] args) {
-        // TODO code application logic here
+        
     }
     
 }
