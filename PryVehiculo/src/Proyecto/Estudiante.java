@@ -54,6 +54,6 @@ public class Estudiante {
         this.n_matricula = n_matricula;
     }
     
-    
+
     
 }
