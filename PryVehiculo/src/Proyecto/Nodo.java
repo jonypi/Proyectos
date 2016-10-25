@@ -20,7 +20,7 @@ public class Nodo {
         this.siguiente=null;
     }
 
-    public Nodo(Materia datoMat, Docente datoDoc, Estudiante datoEst, Nodo siguiente) {
+    public Nodo(Materia datoMat, Nodo siguiente) {
         this.datoMat = datoMat;
         this.siguiente = siguiente;
     }

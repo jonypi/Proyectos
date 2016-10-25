@@ -8,14 +8,14 @@ package Proyecto;
 
 public class Nodo1 {
     private Docente datoDoc;
-    private Nodo siguiente;
+    private Nodo1 siguiente;
 
     public Nodo1(Docente datoDoc) {
         this.datoDoc = datoDoc;
         siguiente=null;
     }
 
-    public Nodo1(Docente datoDoc, Nodo siguiente) {
+    public Nodo1(Docente datoDoc, Nodo1 siguiente) {
         this.datoDoc = datoDoc;
         this.siguiente = siguiente;
     }
@@ -28,11 +28,11 @@ public class Nodo1 {
         this.datoDoc = datoDoc;
     }
 
-    public Nodo getSiguiente() {
+    public Nodo1 getSiguiente() {
         return siguiente;
     }
 
-    public void setSiguiente(Nodo siguiente) {
+    public void setSiguiente(Nodo1 siguiente) {
         this.siguiente = siguiente;
     }
     

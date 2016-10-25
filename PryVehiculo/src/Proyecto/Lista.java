@@ -24,6 +24,10 @@ import java.util.logging.Logger;
 public class Lista {
     private Nodo inicio;
     private Nodo fin;
+    private Nodo1 inicio1;
+    private Nodo1 fin1;
+    private Nodo2 inicio2;
+    private Nodo2 fin2;
     
     public Lista(){
         
@@ -48,41 +52,41 @@ public class Lista {
         }
     }
     public void agregarInicioEstudiante(Estudiante dato){
-        Nodo nuevo1=new Nodo(dato);
-        if(inicio==fin && fin==null){
-            inicio=fin=nuevo1;
+        Nodo2 nuevo2=new Nodo2(dato);
+        if(inicio2==fin2 && fin2==null){
+            inicio2=fin2=nuevo2;
         }else{
-            nuevo1.setSiguiente(inicio);
-            inicio=nuevo1;
+            nuevo2.setSiguiente(inicio2);
+            inicio2=nuevo2;
         }
     }
     public void agregarFinEstudiante(Estudiante dato) {
 
-        Nodo nuevo1 = new Nodo(dato);
-        if (inicio==fin && inicio==null) {
-            inicio=fin=nuevo1;
+        Nodo2 nuevo2 = new Nodo2(dato);
+        if (inicio2==fin2 && inicio2==null) {
+            inicio2=fin2=nuevo2;
         } else {
-            fin.setSiguiente(nuevo1);
-            fin=nuevo1;
+            fin2.setSiguiente(nuevo2);
+            fin2=nuevo2;
         }
     }
     public void agregarInicioDocente(Docente dato){
-        Nodo nuevo2=new Nodo(dato);
-        if(inicio==fin && fin==null){
-            inicio=fin=nuevo2;
+        Nodo1 nuevo1=new Nodo1(dato);
+        if(inicio1==fin1 && fin1==null){
+            inicio1=fin1=nuevo1;
         }else{
-            nuevo2.setSiguiente(inicio);
-            inicio=nuevo2;
+            nuevo1.setSiguiente(inicio1);
+            inicio1=nuevo1;
         }
     }
     public void agregarFinDocente(Docente dato) {
 
-        Nodo nuevo2 = new Nodo(dato);
-        if (inicio==fin && inicio==null) {
-            inicio=fin=nuevo2;
+        Nodo1 nuevo1 = new Nodo1(dato);
+        if (inicio1==fin1 && inicio1==null) {
+            inicio1=fin1=nuevo1;
         } else {
-            fin.setSiguiente(nuevo2);
-            fin=nuevo2;
+            fin1.setSiguiente(nuevo1);
+            fin1=nuevo1;
         }
     }
     
@@ -111,11 +115,11 @@ public class Lista {
         Scanner br = new Scanner(System.in);
         System.out.println("Ingrese la edad del Estudiante");
         int anio = br.nextInt();
-        Integer.parseInt(null) a=anio;
-        Nodo aux = inicio;
+        
+        Nodo2 aux = inicio2;
 
         while (aux != null) {
-            if (aux.getDatoEst().getEdad().(a)){
+            if (aux.getDatoEst().getClass().equals(anio)){
                 System.out.println("********");
                 System.out.println("" + aux.getDatoEst().getNombre());
                 System.out.println("" + aux.getDatoEst().getApellido());
@@ -149,7 +153,7 @@ public class Lista {
         Scanner br = new Scanner(System.in);
         System.out.println("Ingrese el nombre del estudiante a buscar");
         String nombre = br.nextLine();
-        Nodo aux = inicio;
+        Nodo2 aux = inicio2;
 
         while (aux != null) {
             if (aux.getDatoEst().getNombre().equals(nombre)) {
@@ -164,11 +168,11 @@ public class Lista {
         }
 
     }
-    public void BuscarPorCedula() {
+    public void BuscarPorCedulaDocente() {
         Scanner br = new Scanner(System.in);
-        System.out.println("Ingrese la cedula a buscar");
+        System.out.println("Ingrese la cedula del docente a buscar");
         String cedula = br.nextLine();
-        Nodo aux = inicio;
+        Nodo1 aux = inicio1;
 
         while (aux != null) {
             if (aux.getDatoDoc().getCedula().equals(cedula)) {
@@ -184,18 +188,18 @@ public class Lista {
 
     }
     public boolean eliminaValorEstudiante(String busqueda) {
-        if (inicio != null) {
+        if (inicio2 != null) {
 
-            if (inicio == fin && inicio.getDatoEst().getNombre().compareTo(busqueda) == 0) {
-                inicio = fin = null;
+            if (inicio2 == fin2 && inicio2.getDatoEst().getNombre().compareTo(busqueda) == 0) {
+                inicio2 = fin2 = null;
                 return true;
-            } else if (inicio.getDatoEst().getNombre().compareTo(busqueda) == 0) {
-                inicio = inicio.getSiguiente();
+            } else if (inicio2.getDatoEst().getNombre().compareTo(busqueda) == 0) {
+                inicio2 = inicio2.getSiguiente();
                 return true;
             } else {
 
-                Nodo anterior = inicio;
-                Nodo temporal = inicio.getSiguiente();
+                Nodo2 anterior = inicio2;
+                Nodo2 temporal = inicio2.getSiguiente();
 
                 while (temporal != null && temporal.getDatoEst().getNombre().compareTo(busqueda) != 0) {
                     anterior = anterior.getSiguiente();
@@ -204,8 +208,8 @@ public class Lista {
 
                 if (temporal != null) {
                     anterior.setSiguiente(temporal.getSiguiente());
-                    if (temporal == fin) {
-                        fin = anterior;
+                    if (temporal == fin2) {
+                        fin2 = anterior;
                     }
                     return true;
                 }
@@ -217,13 +221,13 @@ public class Lista {
         return false;
 
     }
-    public boolean eliminaValorDocente(String busqueda) {
+    public boolean eliminaValorMateria(String busqueda) {
         if (inicio != null) {
 
-            if (inicio == fin && inicio.getDatoDoc().getCedula().compareTo(busqueda) == 0) {
+            if (inicio == fin && inicio.getDatoMat().getNombreMateria().compareTo(busqueda) == 0) {
                 inicio = fin = null;
                 return true;
-            } else if (inicio.getDatoDoc().getCedula().compareTo(busqueda) == 0) {
+            } else if (inicio.getDatoMat().getNombreMateria().compareTo(busqueda) == 0) {
                 inicio = inicio.getSiguiente();
                 return true;
             } else {
@@ -231,7 +235,7 @@ public class Lista {
                 Nodo anterior = inicio;
                 Nodo temporal = inicio.getSiguiente();
 
-                while (temporal != null && temporal.getDatoDoc().getCedula().compareTo(busqueda) != 0) {
+                while (temporal != null && temporal.getDatoMat().getNombreMateria().compareTo(busqueda) != 0) {
                     anterior = anterior.getSiguiente();
                     temporal = temporal.getSiguiente();
                 }
@@ -255,29 +259,36 @@ public class Lista {
         Nodo aux = inicio;
         while (aux != null) {
             System.out.println("********");
-            System.out.println("" + aux.getDatoVehic().getMarca());
-            System.out.println("" + aux.getDatoVehic().getModelo());
-            System.out.println("" + aux.getDatoVehic().getColor());
-            System.out.println("" + aux.getDatoVehic().getTipo());
-            System.out.println("" + aux.getDatoVehic().getAnio());
+            System.out.println("" + aux.getDatoMat().getNombreMateria());
+            System.out.println("" + aux.getDatoMat().getHorarioMateria());
             System.out.println("********");
             aux = aux.getSiguiente();
         }
     }
     
     public void imprimir2() {
-        Nodo aux = inicio;
+        Nodo1 aux = inicio1;
         while (aux != null) {
             System.out.println("********");
-            System.out.println("" + aux.getDatoPro().getNombre());
-            System.out.println("" + aux.getDatoPro().getCedula());
-            System.out.println("" + aux.getDatoPro().getProfesion());
-            System.out.println("" + aux.getDatoPro().getEdad());
+            System.out.println("" + aux.getDatoDoc().getNombre());
+            System.out.println("" + aux.getDatoDoc().getCedula());
+            System.out.println("" + aux.getDatoDoc().getTipoMateria());
             System.out.println("********");
             aux = aux.getSiguiente();
         }
     }
-    public void Archivo() {
+    public void imprimir3() {
+        Nodo2 aux = inicio2;
+        while (aux != null) {
+            System.out.println("********");
+            System.out.println("" + aux.getDatoEst().getNombre());
+            System.out.println("" + aux.getDatoEst().getApellido());
+            System.out.println("" + aux.getDatoEst().getEdad());
+            System.out.println("********");
+            aux = aux.getSiguiente();
+        }
+    }
+    /*public void Archivo() {
         FileWriter w;
         BufferedWriter bw;
         PrintWriter wr;
@@ -332,6 +343,6 @@ public class Lista {
 
         return total;
 
-    }
+    }*/
     
 }

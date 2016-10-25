@@ -37,6 +37,8 @@ public class Materia {
     public void setHorarioMateria(int horarioMateria) {
         this.horarioMateria = horarioMateria;
     }
+
+    
     
     
     

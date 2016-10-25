@@ -69,10 +69,10 @@ public static int menu() {
     public static int submenu3() {
 
         System.out.println("Tipos de Busquedas");
-        System.out.println("1. Busqueda por Anio de automovil");
-        System.out.println("2. Busqueda por Modelo de automovil");
-        System.out.println("3. Busqueda por Nombre de propietario");
-        System.out.println("4. Busqueda por Cedula de propietario");
+        System.out.println("1. Busqueda por Cedula de docente");
+        System.out.println("2. Busqueda por Edad de estudiante");
+        System.out.println("3. Busqueda por Nombre de materia");
+        System.out.println("4. Busqueda por Nombre se estudiante");
         System.out.println("5. Regresar al Menu");
 
         int opcion = leerEntero("Seleccione una opcion");
@@ -82,7 +82,7 @@ public static int menu() {
     
     public static void main(String[] args) {
         Lista coleccion = new Lista();
-        String total = coleccion.leerArchivo("Archivos.txt");
+        //String total = coleccion.leerArchivo("Archivos.txt");
         
         
         int op = 0;
@@ -94,35 +94,42 @@ public static int menu() {
                     op2 = submenu();
                     switch (op2) {
                         case 1:
-                            Docente v1 = new Docente();
-                            Propietario p1=new Propietario();
-                            v1.setMarca(leerString("Ingrese la Marca"));
-                            v1.setModelo(leerString("Ingrese el Modelo"));
-                            v1.setColor(leerString("Ingrese el Color"));
-                            v1.setAnio(leerEntero("Ingrese el Anio del modelo"));
-                            p1.setNombre(leerString("Ingrese el nombre del propietario"));
-                            p1.setCedula(leerString("Ingrese la cedula del propietario"));
-                            p1.setProfesion(leerString("Ingrese la profesion del propietario"));
-                            p1.setEdad(leerEntero("Ingrese los anios del propietario"));
-                            coleccion.agregarInicioVehiculo(v1);
-                            coleccion.agregarInicioPropietario(p1);
-                            coleccion.Archivo();
+                            Docente d1 = new Docente();
+                            Estudiante s1 = new Estudiante();
+                            Materia m1 = new Materia();
+                            
+                            m1.setNombreMateria(leerString("Ingrese el nombre de la materia"));
+                            m1.setHorarioMateria(leerEntero("Ingrese la hora de la materia"));
+                            d1.setNombre(leerString("Ingrese le nombre del docente"));
+                            d1.setCedula(leerString("Ingrese la cedula del docente"));
+                            d1.setTipoMateria(leerString("Ingrese la materia a impartir por el docente"));
+                            s1.setNombre(leerString("Ingrese el nombre del estudiante"));
+                            s1.setApellido(leerString("Ingrese el apellido del estudiante"));
+                            s1.setEdad(leerEntero("Ingrese la edad del estudiante"));
+                            coleccion.agregarInicioMateria(m1);
+                            coleccion.agregarInicioDocente(d1);
+                            coleccion.agregarInicioEstudiante(s1);
+                            
+                            //coleccion.Archivo();
                            
                             break;
                         case 2:
-                            Docente v2 = new Docente();
-                            Propietario p2=new Propietario();
-                            v2.setMarca(leerString("Ingrese la Marca"));
-                            v2.setModelo(leerString("Ingrese el Modelo"));
-                            v2.setColor(leerString("Ingrese el Color"));
-                            v2.setAnio(leerEntero("Ingrese el Anio del modelo"));
-                            p2.setNombre(leerString("Ingrese el nombre del propietario"));
-                            p2.setCedula(leerString("Ingrese la cedula del propietario"));
-                            p2.setProfesion(leerString("Ingrese la profesion del propietario"));
-                            p2.setEdad(leerEntero("Ingrese los anios del propietario"));
-                            coleccion.agregarFinVehiculo(v2);
-                            coleccion.agregarFinPropietario(p2);
-                            coleccion.Archivo();
+                            Docente d2 = new Docente();
+                            Estudiante s2 = new Estudiante();
+                            Materia m2 = new Materia();
+                            
+                            m2.setNombreMateria(leerString("Ingrese el nombre de la materia"));
+                            m2.setHorarioMateria(leerEntero("Ingrese la hora de la materia"));
+                            d2.setNombre(leerString("Ingrese le nombre del docente"));
+                            d2.setCedula(leerString("Ingrese la cedula del docente"));
+                            d2.setTipoMateria(leerString("Ingrese la materia a impartir por el docente"));
+                            s2.setNombre(leerString("Ingrese el nombre del estudiante"));
+                            s2.setApellido(leerString("Ingrese el apellido del estudiante"));
+                            s2.setEdad(leerEntero("Ingrese la edad del estudiante"));
+                            coleccion.agregarFinMateria(m2);
+                            coleccion.agregarFinDocente(d2);
+                            coleccion.agregarFinEstudiante(s2);
+                            
                             break;
                         case 3:
 
@@ -137,14 +144,14 @@ public static int menu() {
                     switch (op2) {
                         case 1:
                             coleccion.eliminarInicio();
-                            coleccion.Archivo();
+                            //coleccion.Archivo();
                             break;
                         case 2:
                             coleccion.eliminarFin();
-                            coleccion.Archivo();
+                            //coleccion.Archivo();
                             break;
                         case 3:
-                            coleccion.eliminaValorPropietario(leerString("Ingrese el nombre que desea eliminar"));
+                            //coleccion.eliminaValorMateria(leerString("Ingrese el nombre que desea eliminar"));
                             
                             break;
                         case 4:
@@ -159,22 +166,23 @@ public static int menu() {
 
                     coleccion.imprimir();
                     coleccion.imprimir2();
+                    coleccion.imprimir3();
                     break;
 
                 case 4:
                     op2 = submenu3();
                     switch (op2) {
                         case 1:
-                            coleccion.BuscarPorModelo();
+                            coleccion.BuscarPorCedulaDocente();
                             break;
                         case 2:
-                            coleccion.BuscarPorAnio();
+                            coleccion.BuscarPorEdad();
                             break;
                         case 3:
-                            coleccion.BuscarPorNombre();
+                            coleccion.BuscarPorMateria();
                             break;
                         case 4:
-                            coleccion.BuscarPorCedula();
+                            coleccion.BuscarPorNombreEstudiante();
                             break;
                         case 5:
                             break;
