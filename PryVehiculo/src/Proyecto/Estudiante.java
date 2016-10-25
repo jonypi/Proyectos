@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto;
+package Proyecto;
 
 /**
  *
@@ -13,13 +13,16 @@ public class Estudiante {
     private String nombre;
     private String apellido;
     private int edad;
-    private String n_matricula;
+    
 
-    public Estudiante(String nombre, String apellido, int edad, String n_matricula) {
+    public Estudiante() {
+    }
+
+    public Estudiante(String nombre, String apellido, int edad) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
-        this.n_matricula = n_matricula;
+        
     }
 
     public String getNombre() {
@@ -46,14 +49,7 @@ public class Estudiante {
         this.edad = edad;
     }
 
-    public String getN_matricula() {
-        return n_matricula;
-    }
-
-    public void setN_matricula(String n_matricula) {
-        this.n_matricula = n_matricula;
-    }
-    
+        
 
     
 }

@@ -9,20 +9,20 @@ package Proyecto;
  *
  * @author Dell
  */
-public class Propietario {
+public class Docente {
+    
     private String nombre;
     private String cedula;
-    private int edad;
-    private String profesion;
-    
-    public Propietario() {
+    private String tipoMateria;
+
+    public Docente() {
     }
 
-    public Propietario(String nombre, String cedula, int edad, String profesion) {
+
+    public Docente(String nombre, String cedula, String tipoMateria) {
         this.nombre = nombre;
         this.cedula = cedula;
-        this.edad = edad;
-        this.profesion = profesion;
+        this.tipoMateria = tipoMateria;
     }
 
     public String getNombre() {
@@ -41,20 +41,16 @@ public class Propietario {
         this.cedula = cedula;
     }
 
-    public int getEdad() {
-        return edad;
+    public String getTipoMateria() {
+        return tipoMateria;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setTipoMateria(String tipoMateria) {
+        this.tipoMateria = tipoMateria;
     }
+    
 
-    public String getProfesion(){
-        return profesion;
-    }
-    public void setProfesion(String profesion) {
-        this.profesion = profesion;
-    }
+    
     
     
 }

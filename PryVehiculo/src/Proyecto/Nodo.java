@@ -5,61 +5,39 @@
  */
 package Proyecto;
 
+
+
 /**
  *
  * @author Dell
  */
 public class Nodo {
-    private Propietario datoPro;
-    private Vehiculo datoVehic;
+    private Materia datoMat;
     private Nodo siguiente;
 
-    public Nodo(Propietario datoPro) {
-        this.datoPro = datoPro;
-        siguiente=null;
-    }
-    
-    public Nodo(Vehiculo datoVehic) {
-        this.datoVehic = datoVehic;
-        siguiente=null;
+    public Nodo(Materia datoMat) {
+        this.datoMat = datoMat;
+        this.siguiente=null;
     }
 
-    public Nodo(Propietario datoPro, Nodo siguiente) {
-        this.datoPro = datoPro;
+    public Nodo(Materia datoMat, Docente datoDoc, Estudiante datoEst, Nodo siguiente) {
+        this.datoMat = datoMat;
         this.siguiente = siguiente;
     }
 
-    public Nodo(Vehiculo datoVehic, Nodo siguiente) {
-        this.datoVehic = datoVehic;
-        this.siguiente = siguiente;
+    public Materia getDatoMat() {
+        return datoMat;
     }
 
-    public Propietario getDatoPro() {
-        return datoPro;
+    public void setDatoMat(Materia datoMat) {
+        this.datoMat = datoMat;
     }
-
-    public void setDatoPro(Propietario datoPro) {
-        this.datoPro = datoPro;
-    }
-
-    public Vehiculo getDatoVehic() {
-        return datoVehic;
-    }
-
-    public void setDatoVehic(Vehiculo datoVehic) {
-        this.datoVehic = datoVehic;
-    }
-
-    public Nodo getSiguiente() {
+     public Nodo getSiguiente() {
         return siguiente;
     }
 
     public void setSiguiente(Nodo siguiente) {
         this.siguiente = siguiente;
-    }
-
-    
-    
-    
+    }  
         
 }

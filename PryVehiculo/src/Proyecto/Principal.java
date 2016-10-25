@@ -94,7 +94,7 @@ public static int menu() {
                     op2 = submenu();
                     switch (op2) {
                         case 1:
-                            Vehiculo v1 = new Vehiculo();
+                            Docente v1 = new Docente();
                             Propietario p1=new Propietario();
                             v1.setMarca(leerString("Ingrese la Marca"));
                             v1.setModelo(leerString("Ingrese el Modelo"));
@@ -110,7 +110,7 @@ public static int menu() {
                            
                             break;
                         case 2:
-                            Vehiculo v2 = new Vehiculo();
+                            Docente v2 = new Docente();
                             Propietario p2=new Propietario();
                             v2.setMarca(leerString("Ingrese la Marca"));
                             v2.setModelo(leerString("Ingrese el Modelo"));

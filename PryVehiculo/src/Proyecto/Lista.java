@@ -28,7 +28,7 @@ public class Lista {
     public Lista(){
         
     }
-    public void agregarInicioVehiculo(Vehiculo dato){
+    public void agregarInicioMateria(Materia dato){
         Nodo nuevo=new Nodo(dato);
         if(inicio==fin && fin==null){
             inicio=fin=nuevo;
@@ -37,7 +37,7 @@ public class Lista {
             inicio=nuevo;
         }
     }
-    public void agregarFinVehiculo(Vehiculo dato) {
+    public void agregarFinMateria(Materia dato) {
 
         Nodo nuevo = new Nodo(dato);
         if (inicio==fin && inicio==null) {
@@ -47,8 +47,8 @@ public class Lista {
             fin=nuevo;
         }
     }
-    public void agregarInicioPropietario(Propietario dato1){
-        Nodo nuevo1=new Nodo(dato1);
+    public void agregarInicioEstudiante(Estudiante dato){
+        Nodo nuevo1=new Nodo(dato);
         if(inicio==fin && fin==null){
             inicio=fin=nuevo1;
         }else{
@@ -56,9 +56,9 @@ public class Lista {
             inicio=nuevo1;
         }
     }
-    public void agregarFinPropietario(Propietario dato1) {
+    public void agregarFinEstudiante(Estudiante dato) {
 
-        Nodo nuevo1 = new Nodo(dato1);
+        Nodo nuevo1 = new Nodo(dato);
         if (inicio==fin && inicio==null) {
             inicio=fin=nuevo1;
         } else {
@@ -66,6 +66,26 @@ public class Lista {
             fin=nuevo1;
         }
     }
+    public void agregarInicioDocente(Docente dato){
+        Nodo nuevo2=new Nodo(dato);
+        if(inicio==fin && fin==null){
+            inicio=fin=nuevo2;
+        }else{
+            nuevo2.setSiguiente(inicio);
+            inicio=nuevo2;
+        }
+    }
+    public void agregarFinDocente(Docente dato) {
+
+        Nodo nuevo2 = new Nodo(dato);
+        if (inicio==fin && inicio==null) {
+            inicio=fin=nuevo2;
+        } else {
+            fin.setSiguiente(nuevo2);
+            fin=nuevo2;
+        }
+    }
+    
 
     public void eliminarInicio(){
         if (inicio!=fin){
@@ -87,20 +107,19 @@ public class Lista {
         aux.setSiguiente(null);
     }
     
-    public void BuscarPorAnio() {
+    public void BuscarPorEdad() {
         Scanner br = new Scanner(System.in);
-        System.out.println("Ingrese el marca a buscar");
+        System.out.println("Ingrese la edad del Estudiante");
         int anio = br.nextInt();
+        Integer.parseInt(null) a=anio;
         Nodo aux = inicio;
 
         while (aux != null) {
-            if (aux.getDatoVehic().getMarca().equals(anio)) {
+            if (aux.getDatoEst().getEdad().(a)){
                 System.out.println("********");
-                System.out.println("" + aux.getDatoVehic().getMarca());
-                System.out.println("" + aux.getDatoVehic().getModelo());
-                System.out.println("" + aux.getDatoVehic().getColor());
-                System.out.println("" + aux.getDatoVehic().getAnio());
-                System.out.println("" + aux.getDatoVehic().getTipo());
+                System.out.println("" + aux.getDatoEst().getNombre());
+                System.out.println("" + aux.getDatoEst().getApellido());
+                System.out.println("" + aux.getDatoEst().getEdad());
                 System.out.println("********");
             }
             aux = aux.getSiguiente();
@@ -108,20 +127,17 @@ public class Lista {
         }
 
     }
-    public void BuscarPorModelo() {
+    public void BuscarPorMateria() {
         Scanner br = new Scanner(System.in);
-        System.out.println("Ingrese el marca a buscar");
+        System.out.println("Ingrese la materia a buscar");
         String modelo = br.nextLine();
         Nodo aux = inicio;
 
         while (aux != null) {
-            if (aux.getDatoVehic().getModelo().equals(modelo)) {
+            if (aux.getDatoMat().getNombreMateria().equals(modelo)) {
                 System.out.println("********");
-                System.out.println("" + aux.getDatoVehic().getMarca());
-                System.out.println("" + aux.getDatoVehic().getModelo());
-                System.out.println("" + aux.getDatoVehic().getColor());
-                System.out.println("" + aux.getDatoVehic().getAnio());
-                System.out.println("" + aux.getDatoVehic().getTipo());
+                System.out.println("" + aux.getDatoMat().getNombreMateria());
+                System.out.println("" + aux.getDatoMat().getHorarioMateria());
                 System.out.println("********");
             }
             aux = aux.getSiguiente();
@@ -129,19 +145,18 @@ public class Lista {
         }
 
     }
-    public void BuscarPorNombre() {
+    public void BuscarPorNombreEstudiante() {
         Scanner br = new Scanner(System.in);
-        System.out.println("Ingrese el marca a buscar");
+        System.out.println("Ingrese el nombre del estudiante a buscar");
         String nombre = br.nextLine();
         Nodo aux = inicio;
 
         while (aux != null) {
-            if (aux.getDatoPro().getNombre().equals(nombre)) {
+            if (aux.getDatoEst().getNombre().equals(nombre)) {
                 System.out.println("********");
-                System.out.println("" + aux.getDatoPro().getNombre());
-                System.out.println("" + aux.getDatoPro().getCedula());
-                System.out.println("" + aux.getDatoPro().getProfesion());
-                System.out.println("" + aux.getDatoPro().getEdad());
+                System.out.println("" + aux.getDatoEst().getNombre());
+                System.out.println("" + aux.getDatoEst().getApellido());
+                System.out.println("" + aux.getDatoEst().getEdad());
                 System.out.println("********");
             }
             aux = aux.getSiguiente();
@@ -151,17 +166,16 @@ public class Lista {
     }
     public void BuscarPorCedula() {
         Scanner br = new Scanner(System.in);
-        System.out.println("Ingrese el marca a buscar");
+        System.out.println("Ingrese la cedula a buscar");
         String cedula = br.nextLine();
         Nodo aux = inicio;
 
         while (aux != null) {
-            if (aux.getDatoPro().getCedula().equals(cedula)) {
+            if (aux.getDatoDoc().getCedula().equals(cedula)) {
                 System.out.println("********");
-                System.out.println("" + aux.getDatoPro().getNombre());
-                System.out.println("" + aux.getDatoPro().getCedula());
-                System.out.println("" + aux.getDatoPro().getProfesion());
-                System.out.println("" + aux.getDatoPro().getEdad());
+                System.out.println("" + aux.getDatoDoc().getNombre());
+                System.out.println("" + aux.getDatoDoc().getCedula());
+                System.out.println("" + aux.getDatoDoc().getTipoMateria());
                 System.out.println("********");
             }
             aux = aux.getSiguiente();
@@ -169,13 +183,13 @@ public class Lista {
         }
 
     }
-    public boolean eliminaValorPropietario(String busqueda) {
+    public boolean eliminaValorEstudiante(String busqueda) {
         if (inicio != null) {
 
-            if (inicio == fin && inicio.getDatoPro().getNombre().compareTo(busqueda) == 0) {
+            if (inicio == fin && inicio.getDatoEst().getNombre().compareTo(busqueda) == 0) {
                 inicio = fin = null;
                 return true;
-            } else if (inicio.getDatoPro().getNombre().compareTo(busqueda) == 0) {
+            } else if (inicio.getDatoEst().getNombre().compareTo(busqueda) == 0) {
                 inicio = inicio.getSiguiente();
                 return true;
             } else {
@@ -183,7 +197,7 @@ public class Lista {
                 Nodo anterior = inicio;
                 Nodo temporal = inicio.getSiguiente();
 
-                while (temporal != null && temporal.getDatoPro().getNombre().compareTo(busqueda) != 0) {
+                while (temporal != null && temporal.getDatoEst().getNombre().compareTo(busqueda) != 0) {
                     anterior = anterior.getSiguiente();
                     temporal = temporal.getSiguiente();
                 }
@@ -203,13 +217,13 @@ public class Lista {
         return false;
 
     }
-    public boolean eliminaValorVehiculo(String busqueda) {
+    public boolean eliminaValorDocente(String busqueda) {
         if (inicio != null) {
 
-            if (inicio == fin && inicio.getDatoVehic().getMarca().compareTo(busqueda) == 0) {
+            if (inicio == fin && inicio.getDatoDoc().getCedula().compareTo(busqueda) == 0) {
                 inicio = fin = null;
                 return true;
-            } else if (inicio.getDatoVehic().getMarca().compareTo(busqueda) == 0) {
+            } else if (inicio.getDatoDoc().getCedula().compareTo(busqueda) == 0) {
                 inicio = inicio.getSiguiente();
                 return true;
             } else {
@@ -217,7 +231,7 @@ public class Lista {
                 Nodo anterior = inicio;
                 Nodo temporal = inicio.getSiguiente();
 
-                while (temporal != null && temporal.getDatoVehic().getMarca().compareTo(busqueda) != 0) {
+                while (temporal != null && temporal.getDatoDoc().getCedula().compareTo(busqueda) != 0) {
                     anterior = anterior.getSiguiente();
                     temporal = temporal.getSiguiente();
                 }
