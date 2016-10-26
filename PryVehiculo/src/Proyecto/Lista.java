@@ -288,12 +288,12 @@ public class Lista {
             aux = aux.getSiguiente();
         }
     }
-    /*public void Archivo() {
+    public void Archivo1() {
         FileWriter w;
         BufferedWriter bw;
         PrintWriter wr;
         File archivo;
-        archivo = new File("Archivos.txt");
+        archivo = new File("C:\\Users\\PERSONAL\\Desktop\\Proyectos\\PryVehiculo\\src\\Proyecto\\ArchivoMateria.txt");
 
         try {
 
@@ -307,8 +307,7 @@ public class Lista {
 
             while (aux != null) {
 
-                wr.println(aux.getDatoVehic().getMarca() + ", " + aux.getDatoVehic().getModelo() + ", " +
-                aux.getDatoVehic().getColor() + ", " + aux.getDatoVehic().getTipo()+", "+aux.getDatoVehic().getAnio());
+                wr.println(aux.getDatoMat().getNombreMateria()+ ", " + aux.getDatoMat().getHorarioMateria());
                 aux = aux.getSiguiente();
             }
 
@@ -320,7 +319,93 @@ public class Lista {
         }
 
     }
-    public String leerArchivo(String path) {
+    public void Archivo2() {
+        FileWriter w;
+        BufferedWriter bw;
+        PrintWriter wr;
+        File archivo;
+        archivo = new File("C:\\Users\\PERSONAL\\Desktop\\Proyectos\\PryVehiculo\\src\\Proyecto\\ArchivoDocente.txt");
+
+        try {
+
+            archivo.createNewFile();
+            
+            w = new FileWriter(archivo, false);
+            wr = new PrintWriter(w);
+            bw = new BufferedWriter(w);
+
+            Nodo1 aux = inicio1;
+
+            while (aux != null) {
+
+                wr.println(aux.getDatoDoc().getNombre()+ ", " + aux.getDatoDoc().getCedula()+", "+ aux.getDatoDoc().getTipoMateria());
+                aux = aux.getSiguiente();
+            }
+
+            wr.close();
+            bw.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    public void Archivo3() {
+        FileWriter w;
+        BufferedWriter bw;
+        PrintWriter wr;
+        File archivo;
+        archivo = new File("C:\\Users\\PERSONAL\\Desktop\\Proyectos\\PryVehiculo\\src\\Proyecto\\ArchivoEstudiante.txt");
+
+        try {
+
+            archivo.createNewFile();
+            
+            w = new FileWriter(archivo, false);
+            wr = new PrintWriter(w);
+            bw = new BufferedWriter(w);
+
+            Nodo2 aux = inicio2;
+
+            while (aux != null) {
+
+                wr.println(aux.getDatoEst().getNombre()+ ", " + aux.getDatoEst().getApellido()+", "+aux.getDatoEst().getEdad());        
+                aux = aux.getSiguiente();
+            }
+
+            wr.close();
+            bw.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    public String leerArchivo1(String path) {
+
+        String total = " ";
+        try {
+            FileReader fr = new FileReader(new File(path));
+            BufferedReader br = new BufferedReader(fr);
+
+            String linea = " ";
+            while ((linea = br.readLine()) != null) {
+                total = total + linea + "\n";
+
+            }
+
+        } catch (FileNotFoundException e) {
+
+            System.out.println("Problemas de archivo: " + e.getMessage());
+        } catch (IOException e) {
+
+            System.out.println("Problemas en la lectura del archivo: " + e.getMessage());
+        }
+
+        return total;
+
+    }
+    public String leerArchivo2(String path) {
 
         String total = "";
         try {
@@ -343,6 +428,30 @@ public class Lista {
 
         return total;
 
-    }*/
+    }
+    public String leerArchivo3(String path) {
+
+        String total = "";
+        try {
+            FileReader fr = new FileReader(new File(path));
+            BufferedReader br = new BufferedReader(fr);
+
+            String linea = "";
+            while ((linea = br.readLine()) != null) {
+                total = total + linea + "\n";
+
+            }
+
+        } catch (FileNotFoundException e) {
+
+            System.out.println("Problemas de archivo: " + e.getMessage());
+        } catch (IOException e) {
+
+            System.out.println("Problemas en la lectura del archivo: " + e.getMessage());
+        }
+
+        return total;
+
+    }
     
 }

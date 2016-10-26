@@ -72,18 +72,22 @@ public static int menu() {
         System.out.println("1. Busqueda por Cedula de docente");
         System.out.println("2. Busqueda por Edad de estudiante");
         System.out.println("3. Busqueda por Nombre de materia");
-        System.out.println("4. Busqueda por Nombre se estudiante");
+        System.out.println("4. Busqueda por Nombre del estudiante");
         System.out.println("5. Regresar al Menu");
 
         int opcion = leerEntero("Seleccione una opcion");
         return opcion;
 
     }
+    public static void leerArchivo(String ruta){
+        
+    }
     
     public static void main(String[] args) {
         Lista coleccion = new Lista();
-        //String total = coleccion.leerArchivo("Archivos.txt");
-        
+        String total1 = coleccion.leerArchivo1("C:\\Users\\PERSONAL\\Desktop\\Proyectos\\PryVehiculo\\src\\Proyecto\\ArchivoEstudiante.txt");
+        String total2 = coleccion.leerArchivo2("C:\\Users\\PERSONAL\\Desktop\\Proyectos\\PryVehiculo\\src\\Proyecto\\ArchivoDocente.txt");
+        String total3 = coleccion.leerArchivo3("C:\\Users\\PERSONAL\\Desktop\\Proyectos\\PryVehiculo\\src\\Proyecto\\ArchivoMateria.txt");
         
         int op = 0;
         int op2 = 0;
@@ -110,7 +114,9 @@ public static int menu() {
                             coleccion.agregarInicioDocente(d1);
                             coleccion.agregarInicioEstudiante(s1);
                             
-                            //coleccion.Archivo();
+                            coleccion.Archivo1();
+                            coleccion.Archivo2();
+                            coleccion.Archivo3();
                            
                             break;
                         case 2:
@@ -144,14 +150,14 @@ public static int menu() {
                     switch (op2) {
                         case 1:
                             coleccion.eliminarInicio();
-                            //coleccion.Archivo();
+                            //coleccion.Archivo1();
                             break;
                         case 2:
                             coleccion.eliminarFin();
-                            //coleccion.Archivo();
+                            
                             break;
                         case 3:
-                            //coleccion.eliminaValorMateria(leerString("Ingrese el nombre que desea eliminar"));
+                            coleccion.eliminaValorMateria(leerString("Ingrese el nombre que desea eliminar"));
                             
                             break;
                         case 4:
@@ -167,6 +173,9 @@ public static int menu() {
                     coleccion.imprimir();
                     coleccion.imprimir2();
                     coleccion.imprimir3();
+                    coleccion.leerArchivo1(total1);
+                    coleccion.leerArchivo2(total2);
+                    coleccion.leerArchivo3(total3);
                     break;
 
                 case 4:
